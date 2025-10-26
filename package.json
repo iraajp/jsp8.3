@@ -1,0 +1,13 @@
+{
+  "name": "practical-8.3-userinfo",
+  "version": "1.0.0",
+  "description": "Practical 8.3: JSP userinfo1.jsp - Request Parameters",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
