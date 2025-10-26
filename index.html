@@ -1,82 +1,84 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>User Info Form - Practical 8.3</title>
     <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-        }
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-        input {
-            padding: 5px;
-            width: 250px;
-        }
-        button {
-            margin-top: 15px;
-            padding: 8px 20px;
-            background: #0066cc;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        #result {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f0f0f0;
-            display: none;
-        }
+      body {
+        font-family: Arial;
+        margin: 40px;
+      }
+      label {
+        display: block;
+        margin: 10px 0 5px;
+      }
+      input {
+        padding: 5px;
+        width: 250px;
+      }
+      button {
+        margin-top: 15px;
+        padding: 8px 20px;
+        background: #0066cc;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      #result {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f0f0f0;
+        display: none;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h2>Practical 8.3: User Information Form</h2>
-    
+
     <form id="userForm">
-        <label>User Name:</label>
-        <input type="text" name="userName" required>
-        
-        <label>Birth Date:</label>
-        <input type="date" name="birthDate" required>
-        
-        <label>Email Address:</label>
-        <input type="email" name="emailAddr" required>
-        
-        <label>Lucky Number:</label>
-        <input type="number" name="luckyNo" required>
-        
-        <button type="submit">Submit</button>
+      <label>User Name:</label>
+      <input type="text" name="userName" required />
+
+      <label>Birth Date:</label>
+      <input type="date" name="birthDate" required />
+
+      <label>Email Address:</label>
+      <input type="email" name="emailAddr" required />
+
+      <label>Lucky Number:</label>
+      <input type="number" name="luckyNo" required />
+
+      <button type="submit">Submit</button>
     </form>
 
     <div id="result">
-        <h3>User Information:</h3>
-        <ul>
-            <li>Name: <span id="name"></span></li>
-            <li>Birth Date: <span id="bdate"></span></li>
-            <li>Email: <span id="email"></span></li>
-            <li>Lucky Number: <span id="lucky"></span></li>
-        </ul>
+      <h3>User Information:</h3>
+      <ul>
+        <li>Name: <span id="name"></span></li>
+        <li>Birth Date: <span id="bdate"></span></li>
+        <li>Email: <span id="email"></span></li>
+        <li>Lucky Number: <span id="lucky"></span></li>
+      </ul>
     </div>
 
     <script>
-        document.getElementById('userForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(e.target);
-            const params = new URLSearchParams(formData).toString();
-            
-            fetch('/submit?' + params)
-                .then(res => res.json())
-                .then(data => {
-                    document.getElementById('name').textContent = data.name;
-                    document.getElementById('bdate').textContent = data.birthDate;
-                    document.getElementById('email').textContent = data.email;
-                    document.getElementById('lucky').textContent = data.luckyNumber;
-                    document.getElementById('result').style.display = 'block';
-                });
+      document
+        .getElementById("userForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          const formData = new FormData(e.target);
+          const params = new URLSearchParams(formData).toString();
+
+          fetch("/submit?" + params)
+            .then((res) => res.json())
+            .then((data) => {
+              document.getElementById("name").textContent = data.name;
+              document.getElementById("bdate").textContent = data.birthDate;
+              document.getElementById("email").textContent = data.email;
+              document.getElementById("lucky").textContent = data.luckyNumber;
+              document.getElementById("result").style.display = "block";
+            });
         });
     </script>
-</body>
+  </body>
 </html>

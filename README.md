@@ -5,16 +5,19 @@ This program demonstrates JSP request parameters by accepting user input and dis
 ## How to run
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
 
 2. Start the server:
+
 ```bash
 npm start
 ```
 
 3. Open in browser:
+
 ```
 http://localhost:3005/
 ```
@@ -35,6 +38,7 @@ http://localhost:3005/
 ## Direct URL Test
 
 You can also test directly with query parameters:
+
 ```
 http://localhost:3005/userinfo?userName=John&birthDate=1990-01-01&emailAddr=john@example.com&luckyNo=7
 ```
